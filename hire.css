@@ -1,0 +1,257 @@
+/* Universal Styles */
+* {
+    margin: 0; /* Removes default margin from all elements */
+    padding: 0; /* Removes default padding from all elements */
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+    text-decoration: none; /* Removes default text decorations, like underlines */
+    border: none; /* Removes default borders from all elements */
+    outline: none; /* Removes default outlines, often used for focus states */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    font-family: "Poppins", sans-serif; /* Sets the font family to Poppins with a fallback to sans-serif */
+}
+
+/* Root Variables for Colors */
+:root {
+    --bg-color: #080808; /* Background color for general sections */
+    --second-bg-color: #131313; /* Secondary background color, used for specific sections */
+    --text-color: white; /* Color for text */
+    --main-color: #00FF7F; /* Main accent color for highlights and interactive elements */
+}
+
+/* HTML Styles */
+html {
+    font-size: 60%; /* Sets the base font size to 60% of the default, useful for scaling text */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Body Styles */
+body {
+    background: var(--bg-color); /* Sets the background color using the root variable */
+    color: var(--text-color); /* Sets text color using the root variable */
+}
+
+/* Header Styles */
+.header {
+    position: fixed; /* Fixes the header to the top of the page */
+    top: 0; /* Positions the header at the top */
+    left: 0; /* Positions the header to the left edge */
+    width: 100%; /* Makes the header full-width */
+    padding: 4rem 12% 4rem; /* Adds padding around the content */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Applies a blur effect to the background */
+    display: flex; /* Uses flexbox layout */
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Vertically centers items */
+    z-index: 5; /* Ensures the header is above other content */
+}
+
+/* Logo Styles */
+.logo {
+    display: inline-flex; /* Uses inline flexbox layout */
+    justify-content: center; /* Centers logo horizontally */
+    align-items: center; /* Centers logo vertically */
+    width: 6rem; /* Sets width to match the icon size in skills */
+    height: 6rem; /* Sets height to match the icon size in skills */
+    background: transparent; /* Sets background to transparent */
+    border: 3px solid var(--main-color); /* Adds border around the logo */
+    font-size: 3rem; /* Sets font size for the logo */
+    border-radius: 50%; /* Makes the logo container circular */
+    color: var(--main-color); /* Sets logo color */
+    margin-bottom: 0.75rem; /* Adds margin below the logo */
+    transition: 0.3s ease-in-out; /* Adds transition effect on hover */
+    text-align: center; /* Centers text inside the logo */
+    box-shadow: 0 0 25px var(--main-color); /* Adds a glowing shadow similar to the skills icons */
+}
+
+/* Hover Effect for Logo */
+.logo:hover {
+    color: var(--text-color); /* Changes logo color on hover */
+    transform: scale(1.3) translateY(-5px); /* Scales up and moves the logo up */
+    background-color: var(--main-color); /* Sets background color on hover */
+    box-shadow: 0 0 25px var(--main-color); /* Adds a glowing shadow on hover */
+}
+
+
+/* Logo Span Styles */
+.logo span {
+    text-shadow: 0 0 25px var(--main-color); /* Adds a glowing effect to the text */
+}
+
+/* Navbar Styles */
+.navbar a {
+    font-size: 1.8rem; /* Sets the font size for navbar links */
+    color: var(--text-color); /* Sets text color using the root variable */
+    margin-left: 4rem; /* Adds space between navbar items */
+    font-weight: 500; /* Sets font weight */
+    transition: 0.3s ease; /* Adds transition effect on hover */
+    border-bottom: 3px solid transparent; /* Adds a bottom border for underline effect */
+}
+
+/* Hover and Active States for Navbar Links */
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color); /* Changes text color on hover or when active */
+    border-bottom: 3px solid var(--main-color); /* Shows a colored underline on hover or when active */
+}
+
+/* Menu Icon Styles */
+#menu-icon {
+    font-size: 3.6rem; /* Sets the font size for the menu icon */
+    color: var(--main-color); /* Sets the icon color */
+    display: none; /* Hides the menu icon by default */
+}
+
+/* Skills Section Styles */
+.skills {
+    padding: 80px 15px; /* Maintain padding for spacing */
+    background: var(--second-bg-color); /* Sets background color for the skills section */
+    display: flex; /* Uses flexbox layout */
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: center; /* Centers the container horizontally */
+    align-items: center; /* Centers the container vertically */
+    min-height: 80vh; /* Ensures the section takes up at least 80% of the viewport height */
+    margin-top: 150px; /* Adds margin above the section to push it down */
+}
+
+/* Skills Section Heading Styles */
+.skills h2 {
+    font-size: 3.5rem; /* Sets the font size for the heading */
+    margin-bottom: -5rem; /* Reduced margin below the heading for better spacing */
+    margin-top: -1rem; /* Adds margin above the heading to push it lower */
+    text-align: center; /* Centers the heading text */
+}
+
+/* Skills Container Styles */
+.skills-container {
+    display: flex; /* Uses flexbox layout */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    margin-top: 3rem; /* Adds margin above the container to separate from heading */
+}
+
+/* Skills Content Styles */
+.skills-content {
+    text-align: center; /* Centers text inside the content */
+    margin: 0 2rem; /* Adds horizontal margin for spacing */
+}
+
+/* Container Styles for Skill Bars */
+.skills .container {
+    background-color: var(--main-color); /* Sets background color using the root variable */
+    color: var(--text-color); /* Sets text color using the root variable */
+    border-radius: 1rem; /* Rounds corners of the container */
+    padding: 2.5rem; /* Adds padding inside the container */
+    width: 95%; /* Sets width to 95% of the parent container */
+    max-width: 1000px; /* Sets maximum width for larger screens */
+    margin: auto; /* Centers the container horizontally */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow for better separation */
+}
+
+/* Grid Layout for Skill Bars */
+.skills .container .row {
+    display: grid; /* Uses grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates responsive columns */
+    gap: 2rem; /* Adds gap between grid items */
+}
+
+/* Individual Skill Bar Styling */
+.skills .container .bar {
+    display: flex; /* Uses flexbox layout */
+    flex-direction: column; /* Aligns items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    padding: 2rem; /* Increased padding inside the bar */
+    border-radius: 1rem; /* Rounds corners of the bar */
+    background: var(--bg-color); /* Sets background color using the root variable */
+    transition: 0.3s ease; /* Adds transition effect on hover */
+    text-align: center; /* Centers text inside the bar */
+    overflow: hidden; /* Prevents text from overflowing */
+}
+
+/* Hover Effect for Skill Bars */
+.skills .container .bar:hover {
+    box-shadow: 0 6px 15px var(--main-color); /* Increases shadow on hover */
+}
+
+/* Icon Link Styling */
+.skills .container .bar .icon-link {
+    display: inline-flex; /* Uses inline flexbox layout */
+    justify-content: center; /* Centers icon horizontally */
+    align-items: center; /* Centers icon vertically */
+    width: 10rem; /* Increased width of the icon container */
+    height: 10rem; /* Increased height of the icon container */
+    background: transparent; /* Sets background to transparent */
+    border: 4px solid var(--main-color); /* Adds border around the icon */
+    border-radius: 50%; /* Makes the icon container circular */
+    transition: 0.3s ease-in-out; /* Adds transition effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow for better separation */
+}
+
+/* Specific Icon Styling */
+.skills .container .bar .social-icon {
+    width: 100%; /* Full width of the icon container */
+    height: 100%; /* Full height of the icon container */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+    transition: 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+/* LinkedIn Icon Styling */
+.skills .container .bar .linkedin-icon {
+    width: 10rem; /* Increased size for LinkedIn icon */
+    height: 10rem; /* Increased size for LinkedIn icon */
+}
+
+/* OnlineJobs Icon Styling */
+.skills .container .bar .onlinejobs-icon {
+    width: 10rem; /* Increased size for OnlineJobs icon */
+    height: 10rem; /* Increased size for OnlineJobs icon */
+}
+
+/* Hover Effect for Icon Link */
+.skills .container .bar .icon-link:hover {
+    color: var(--text-color); /* Changes icon color on hover */
+    transform: scale(1.3) translateY(-5px); /* Scales up and moves the icon up */
+    background-color: var(--main-color); /* Sets background color on hover */
+    box-shadow: 0 0 25px var(--main-color); /* Adds a glowing shadow on hover */
+}
+
+/* Text Below the Icon */
+.skills .container .bar span {
+    font-size: 1.5rem; /* Sets font size for the text */
+    font-weight: 500; /* Sets font weight */
+    color: var(--text-color); /* Sets text color using the root variable */
+    text-align: center; /* Centers text */
+    overflow: hidden; /* Prevents text overflow */
+    text-overflow: ellipsis; /* Adds ellipsis for overflowed text */
+    white-space: nowrap; /* Prevents text from wrapping */
+    margin-top: 2rem; /* Increased margin above the text to move it lower */
+}
+
+/* Responsive Adjustments for Very Small Screens */
+@media (max-width: 480px) {
+    .skills .container .bar {
+        padding: 1rem; /* Adjusted padding for smaller screens */
+    }
+
+    .skills .container .bar .icon-link {
+        width: 8rem; /* Adjusted width for smaller screens */
+        height: 8rem; /* Adjusted height for smaller screens */
+    }
+
+    .skills .container .bar .linkedin-icon {
+        width: 8rem; /* Adjusted size for LinkedIn on smaller screens */
+        height: 8rem; /* Adjusted size for LinkedIn on smaller screens */
+    }
+
+    .skills .container .bar .onlinejobs-icon {
+        width: 8rem; /* Adjusted size for OnlineJobs on smaller screens */
+        height: 8rem; /* Adjusted size for OnlineJobs on smaller screens */
+    }
+
+    .skills .container .bar span {
+        font-size: 1.2rem; /* Adjusted font size for smaller screens */
+        margin-top: 1.5rem; /* Adjusted margin above the text */
+    }
+}

@@ -1,0 +1,291 @@
+/* Universal Styles */
+* {
+    margin: 0; /* Removes default margin from all elements */
+    padding: 0; /* Removes default padding from all elements */
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+    text-decoration: none; /* Removes default text decorations, like underlines */
+    border: none; /* Removes default borders from all elements */
+    outline: none; /* Removes default outlines, often used for focus states */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    font-family: "Poppins", sans-serif; /* Sets the font family to Poppins with a fallback to sans-serif */
+}
+
+/* Root Variables for Colors */
+:root {
+    --bg-color: #080808; /* Background color for general sections */
+    --second-bg-color: #131313; /* Secondary background color, used for specific sections */
+    --text-color: white; /* Color for text */
+    --main-color: #00FF7F; /* Main accent color for highlights and interactive elements */
+    --arrow-bg-color: rgba(0, 0, 0, 0.6); /* Background color for arrows to match slider background */
+    --arrow-hover-bg-color: rgba(0, 0, 0, 0.8); /* Background color for arrows on hover */
+    --arrow-color: #00FF7F; /* Color for arrow icons */
+    --arrow-hover-color: #fff; /* Color for arrow icons on hover */
+    --arrow-glow-color: rgba(0, 255, 127, 0.7); /* Glow color for the arrows */
+    --heading-glow-color: rgba(0, 255, 127, 0.5); /* Glow color for headings */
+}
+
+/* HTML Styles */
+html {
+    font-size: 60%; /* Sets the base font size to 60% of the default, useful for scaling text */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Body Styles */
+body {
+    background: var(--bg-color); /* Sets the background color using the root variable */
+    color: var(--text-color); /* Sets text color using the root variable */
+}
+
+/* Header Styles */
+.header {
+    position: fixed; /* Fixes the header to the top of the page */
+    top: 0; /* Positions the header at the top */
+    left: 0; /* Positions the header to the left edge */
+    width: 100%; /* Makes the header full-width */
+    padding: 4rem 12% 4rem; /* Adds padding around the content */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Applies a blur effect to the background */
+    display: flex; /* Uses flexbox layout */
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Vertically centers items */
+    z-index: 1000; /* Ensures the header is above other content */
+}
+
+/* Logo Styles */
+.logo {
+    display: inline-flex; /* Uses inline flexbox layout */
+    justify-content: center; /* Centers logo horizontally */
+    align-items: center; /* Centers logo vertically */
+    width: 6rem; /* Sets width to match the icon size in skills */
+    height: 6rem; /* Sets height to match the icon size in skills */
+    background: transparent; /* Sets background to transparent */
+    border: 3px solid var(--main-color); /* Adds border around the logo */
+    font-size: 3rem; /* Sets font size for the logo */
+    border-radius: 50%; /* Makes the logo container circular */
+    color: var(--main-color); /* Sets logo color */
+    margin-bottom: 0.75rem; /* Adds margin below the logo */
+    transition: 0.3s ease-in-out; /* Adds transition effect on hover */
+    text-align: center; /* Centers text inside the logo */
+    box-shadow: 0 0 25px var(--main-color); /* Adds a glowing shadow similar to the skills icons */
+    z-index: 2000; /* Ensures the logo is above all other elements */
+}
+
+/* Hover Effect for Logo */
+.logo:hover {
+    color: var(--text-color); /* Changes logo color on hover */
+    transform: scale(1.3) translateY(-5px); /* Scales up and moves the logo up */
+    background-color: var(--main-color); /* Sets background color on hover */
+    box-shadow: 0 0 25px var(--main-color); /* Adds a glowing shadow on hover */
+}
+
+/* Logo Span Styles */
+.logo span {
+    text-shadow: 0 0 25px var(--main-color); /* Adds a glowing effect to the text */
+}
+
+/* Navbar Styles */
+.navbar a {
+    font-size: 1.8rem; /* Sets the font size for navbar links */
+    color: var(--text-color); /* Sets text color using the root variable */
+    margin-left: 4rem; /* Adds space between navbar items */
+    font-weight: 500; /* Sets font weight */
+    transition: 0.3s ease; /* Adds transition effect on hover */
+    border-bottom: 3px solid transparent; /* Adds a bottom border for underline effect */
+}
+
+/* Hover and Active States for Navbar Links */
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color); /* Changes text color on hover or when active */
+    border-bottom: 3px solid var(--main-color); /* Shows a colored underline on hover or when active */
+}
+
+/* Menu Icon Styles */
+#menu-icon {
+    font-size: 3.6rem; /* Sets the font size for the menu icon */
+    color: var(--main-color); /* Sets the icon color */
+    display: none; /* Hides the menu icon by default */
+}
+
+/* Slider Styles */
+.slider {
+    height: 100vh; /* Sets the height of the slider to 100% of the viewport height */
+    margin-top: 150px; /* Pushes the slider 150px down from the top */
+    position: relative; /* Allows absolute positioning of child elements */
+    overflow: hidden; /* Hides overflow to prevent scrollbars */
+}
+
+.slider .list {
+    display: flex; /* Uses flexbox to align items */
+    align-items: center; /* Centers items vertically within the container */
+    justify-content: center; /* Centers items horizontally within the container */
+    height: 100%; /* Ensures the container takes full height */
+    width: 100%; /* Ensures the container takes full width */
+    position: absolute; /* Positions the container absolutely within the slider */
+}
+
+.slider .list .item {
+    position: absolute; /* Positions items absolutely within the container */
+    inset: 0; /* Sets all sides (top, right, bottom, left) to 0, filling the container */
+    display: flex; /* Uses flexbox to center content */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    opacity: 0; /* Hides items by default */
+    transition: .5s; /* Smooth transition effect for opacity changes */
+}
+
+.slider .list .item img {
+    max-width: 100vw; /* Ensures the image width does not exceed the viewport width */
+    max-height: 100vh; /* Ensures the image height does not exceed the viewport height */
+    object-fit: contain; /* Maintains the image aspect ratio while fitting within the container */
+}
+
+.slider .list .item::after {
+    content: ''; /* Generates an empty pseudo-element */
+    width: 100%; /* Sets width to cover the full container */
+    height: -100%; /* Sets height to cover the full container */
+    position: absolute; /* Positions it absolutely within the item */
+    left: 0; /* Aligns to the left edge of the container */
+    bottom: 0; /* Aligns to the bottom edge of the container */
+    background-image: linear-gradient(to top, #000 40%, transparent); /* Adds a gradient overlay from black to transparent */
+}
+
+.slider .list .item .content {
+    position: absolute; /* Positions the content absolutely within the item */
+    top: 5%; /* Positions content 5% from the top edge */
+    left: 50%; /* Positions content 50% from the left edge */
+    width: 500px; /* Sets a fixed width for the content */
+    max-width: 80%; /* Allows the width to shrink to 80% of the container’s width if needed */
+    transform: translate(-50%, -50%); /* Centers the content both horizontally and vertically */
+    text-align: center; /* Centers text horizontally within the content */
+    z-index: 1; /* Ensures the content is above other elements */
+    color: var(--text-color); /* Sets text color */
+    transition: all 0.5s ease-in-out; /* Smooth transition for all properties */
+    text-shadow: 0 0 10px var(--heading-glow-color); /* Adds a glowing effect to the text */
+}
+
+.slider .list .item .content p:nth-child(1) {
+    text-transform: uppercase; /* Makes text uppercase */
+    letter-spacing: 10px; /* Adds space between letters */
+}
+
+.slider .list .item .content h2 {
+    font-size: 50px; /* Sets the font size for the heading */
+    margin: 0; /* Removes the default margin */
+    transition: all 0.5s ease-in-out; /* Smooth transition for all properties */
+    text-shadow: 0 0 15px var(--heading-glow-color); /* Adds a glowing effect to the heading text */
+}
+
+.slider .list .item.active {
+    opacity: 1; /* Makes the active item visible */
+    z-index: 100; /* Ensures the active item is above other items */
+}
+
+@keyframes showContent {
+    from {
+        transform: translateY(30px); /* Moves content down 30px */
+        filter: blur(20px); /* Applies a blur effect */
+        opacity: 0; /* Makes content fully transparent */
+    }
+    to {
+        transform: translateY(0); /* Moves content to its normal position */
+        filter: blur(0); /* Removes blur effect */
+        opacity: 1; /* Makes content fully opaque */
+    }
+}
+
+.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h2 {
+    animation: showContent .5s ease-in-out 1 forwards; /* Animates the elements */
+}
+
+.slider .list .item.active h2 {
+    animation-delay: 1s; /* Delays the animation for the heading */
+}
+
+/* Arrows Styles */
+.arrows {
+    position: absolute; /* Positions the arrows absolutely within the slider */
+    top: 50%; /* Centers arrows vertically */
+    transform: translateY(-50%); /* Adjusts for accurate vertical centering */
+    right: 20px; /* Positions arrows 20px from the right edge */
+    z-index: 100; /* Ensures arrows are above other content */
+    display: flex; /* Uses flexbox to align buttons */
+    flex-direction: column; /* Stacks buttons vertically */
+    gap: 10px; /* Adds space between buttons */
+}
+
+.arrows button {
+    background-color: var(--arrow-bg-color); /* Sets the background color for buttons */
+    border: none; /* Removes the default border */
+    font-family: monospace; /* Uses a monospace font */
+    width: 40px; /* Sets a fixed width for buttons */
+    height: 40px; /* Sets a fixed height for buttons */
+    border-radius: 5px; /* Rounds the corners of the buttons */
+    font-size: x-large; /* Sets the font size for the button text */
+    color: var(--arrow-color); /* Sets the text color */
+    transition: 0.5s; /* Smooth transition effect for button changes */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    box-shadow: 0 0 10px var(--arrow-glow-color); /* Adds a glowing effect to the buttons */
+}
+
+.arrows button:hover {
+    background-color: var(--arrow-hover-bg-color); /* Changes background color on hover */
+    color: var(--arrow-hover-color); /* Changes text color on hover */
+    box-shadow: 0 0 15px var(--arrow-glow-color); /* Increases the glowing effect on hover */
+}
+
+/* Thumbnail Styles */
+.thumbnail {
+    position: absolute; /* Positions the thumbnail container absolutely */
+    bottom: 50px; /* Positions the thumbnail container 50px from the bottom */
+    z-index: 11; /* Ensures the thumbnail is above other content */
+    display: flex; /* Uses flexbox to align thumbnail items */
+    gap: 10px; /* Adds space between thumbnail items */
+    width: 100%; /* Makes the thumbnail container full-width */
+    height: 250px; /* Sets a fixed height for the thumbnail container */
+    padding: 0 50px; /* Adds horizontal padding */
+    box-sizing: border-box; /* Ensures padding is included in the total width and height */
+    overflow: auto; /* Allows scrolling if the content overflows */
+    justify-content: center; /* Centers thumbnail items horizontally */
+}
+
+.thumbnail::-webkit-scrollbar {
+    width: 0; /* Hides the scrollbar */
+}
+
+.thumbnail .item {
+    width: auto; /* Allows the thumbnail width to adjust based on content */
+    height: auto; /* Allows the thumbnail height to adjust based on content */
+    filter: brightness(.5); /* Applies a brightness filter */
+    transition: .5s; /* Smooth transition effect for filter changes */
+    flex-shrink: 0; /* Prevents items from shrinking */
+}
+
+.thumbnail .item img {
+    max-width: 100%; /* Ensures the image width does not exceed the container width */
+    max-height: 100%; /* Ensures the image height does not exceed the container height */
+    object-fit: contain; /* Maintains the image aspect ratio while fitting within the container */
+    border-radius: 10px; /* Rounds the corners of the thumbnail images */
+}
+
+.thumbnail .item.active {
+    filter: brightness(1.5); /* Increases brightness for the active thumbnail item */
+}
+
+.thumbnail .item .content {
+    position: absolute; /* Positions content absolutely within the item */
+    inset: auto 10px 10px 10px; /* Positions content within 10px of the bottom and side edges */
+}
+
+@media screen and (max-width: 678px) {
+    .thumbnail {
+        justify-content: start; /* Aligns thumbnail items to the start on small screens */
+    }
+    .slider .list .item .content h2 {
+        font-size: 60px; /* Reduces font size of headings for smaller screens */
+    }
+    .arrows {
+        top: 10%; /* Adjusts top position for arrows on smaller screens */
+    }
+}
